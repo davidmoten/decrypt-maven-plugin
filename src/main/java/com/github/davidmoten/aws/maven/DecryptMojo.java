@@ -35,21 +35,26 @@ public final class DecryptMojo extends AbstractMojo {
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
-        SettingsDecryptionRequest request = new DefaultSettingsDecryptionRequest();
-        request.setServers(settings.getServers());
-        SettingsDecryptionResult result = decrypter.decrypt(request);
-        for (Server server : result.getServers()) {
-            if (server.getId().equals(serverId)) {
-                String password = server.getPassword();
-                try {
-                    Files.write(outputFile.toPath(), password.getBytes(Charset.forName("UTF-8")));
-                    return;
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+        Server server = null;
+        for (Server s : settings.getServers()) {
+            if (s.getId().equals(serverId)) {
+                server = s;
             }
         }
-        throw new MojoExecutionException("serverId not found in settings: " + serverId);
+        if (server == null) {
+            throw new MojoExecutionException("serverId not found in settings: " + serverId);
+        } else {
+            SettingsDecryptionRequest request = new DefaultSettingsDecryptionRequest(server);
+            request.setServers(settings.getServers());
+            SettingsDecryptionResult result = decrypter.decrypt(request);
+            String password = result.getServer().getPassword();
+            try {
+                outputFile.getParentFile().mkdirs();
+                Files.write(outputFile.toPath(), password.getBytes(Charset.forName("UTF-8")));
+            } catch (IOException e) {
+                throw new MojoFailureException(e.getMessage(), e);
+            }
+        }
     }
 
 }
