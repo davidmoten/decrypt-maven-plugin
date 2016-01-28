@@ -1,12 +1,12 @@
 decrypt-maven-plugin
 =====================
 
-Decrypts a server password in .m2/settings.xml and writes it to a file.
+Decrypts a server password in `.m2/settings.xml` and writes it to a file.
 
 Usage
 ------------
 
-Add this to your pom.xml in the `<build><plugins>` section:
+Add this to your `pom.xml` in the `<build><plugins>` section:
 
 ```xml
  <plugin>
