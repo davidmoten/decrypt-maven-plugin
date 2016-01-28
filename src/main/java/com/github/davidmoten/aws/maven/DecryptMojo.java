@@ -45,7 +45,6 @@ public final class DecryptMojo extends AbstractMojo {
             throw new MojoExecutionException("serverId not found in settings: " + serverId);
         } else {
             SettingsDecryptionRequest request = new DefaultSettingsDecryptionRequest(server);
-            request.setServers(settings.getServers());
             SettingsDecryptionResult result = decrypter.decrypt(request);
             String password = result.getServer().getPassword();
             try {
