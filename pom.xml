@@ -13,7 +13,6 @@
 
     <properties>
         <maven.compiler.target>1.6</maven.compiler.target>
-        <aws.sdk.version>1.10.48</aws.sdk.version>
         <scm.url>scm:git:https://github.com/davidmoten/decrypt-maven-plugin.git</scm.url>
     </properties>
 

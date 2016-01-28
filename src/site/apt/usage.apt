@@ -1,0 +1,31 @@
+ ------
+ Decrypt Maven Plugin - Usage
+ ------
+ ------
+
+Quick Start
+
+  To use the plugin, first declare the plugin in your pom.xml:
+
++---+
+<plugin>
+    <groupId>com.github.davidmoten</groupId>
+    <artifactId>decrypt-maven-plugin</artifactId>
+    <version>[plugin version]</version>
+    <configuration>
+        <serverId>container</serverId>
+        <outputFile>${project.build.directory}/pass.txt</outputFile>
+    </configuration>
+</plugin>
++---+
+
+  To run:
+
++---+
+mvn decrypt:decrypt
++---+
+
+
+  
+
+

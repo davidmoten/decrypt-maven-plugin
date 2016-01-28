@@ -52,7 +52,7 @@ public final class DecryptMojo extends AbstractMojo {
                 outputFile.getParentFile().mkdirs();
                 Files.write(outputFile.toPath(), password.getBytes(Charset.forName("UTF-8")));
             } catch (IOException e) {
-                throw new MojoFailureException(e.getMessage(), e);
+                throw new MojoExecutionException(e.getMessage(), e);
             }
         }
     }

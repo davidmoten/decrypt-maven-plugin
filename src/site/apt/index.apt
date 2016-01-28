@@ -1,0 +1,12 @@
+ ------
+ AWS Maven Plugin
+ ------
+ ------
+ 
+Description
+
+  Decrypts a server password in maven settings.xml and writes it to a file.
+
+Usage
+
+  See the {{{./usage.html}Usage page}}. 
