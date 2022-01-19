@@ -19,7 +19,7 @@ Add this to your `pom.xml` in the `<build><plugins>` section:
  <plugin>
     <groupId>com.github.davidmoten</groupId>
     <artifactId>decrypt-maven-plugin</artifactId>
-    <version>0.1.1</version>
+    <version>VERSION_HERE</version>
     <configuration>
         <serverId>container</serverId>
         <outputFile>${project.build.directory}/pass.txt</outputFile>
