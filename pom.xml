@@ -11,7 +11,7 @@
     <version>0.1.3-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <scm.url>scm:git:https://github.com/davidmoten/decrypt-maven-plugin.git</scm.url>
     </properties>
 
